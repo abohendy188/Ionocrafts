@@ -1,0 +1,87 @@
+\documentclass[a4paper,11pt,table]{article}
+\usepackage{notoccite}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsthm,amsfonts,amsmath}
+\usepackage{esint}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+\usepackage{arabtex}
+\usepackage{array, multirow}
+\usepackage{tabularx, tabulary, tabu, longtable}
+\usepackage[margin=1in,includefoot]{geometry}
+\usepackage{fancyhdr}
+\usepackage{utf8}
+\setcode{utf8}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18, width=10cm}
+
+\usepackage{mathptmx}
+\usepackage{esint}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{lipsum}
+
+\usepackage{wrapfig}
+\usetikzlibrary{positioning,fit,calc} % used for the efficient working of the positioning system  
+\tikzset{block/.style={draw, thick, text width=4cm ,minimum height=1.5cm, align=center},   
+line/.style={-latex}     
+}  
+
+\usepackage{calc}
+\usepackage{eso-pic}
+
+
+\newcommand{\myframe}{
+\begin{tikzpicture}[overlay,remember picture]
+    \draw [line width=1pt,rounded corners=15pt,double]
+        ($ (current page.north west) + (1cm,-1cm) $)
+        rectangle
+        ($ (current page.south east) + (-1cm,1cm) $);
+\end{tikzpicture}
+}
+\pagestyle{fancy}
+\fancyhead{}
+\setlength{\headheight}{14pt}
+\fancyhead{\myframe}
+\fancyfoot{}
+\fancyfoot[c]{\vspace{6pt}\thepage\ 
+}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{
+	\vspace{0.1pt}
+	  \includegraphics*[scale=0.2]{images/team_icon}
+}
+\setlength{\footskip}{40pt}
+\fancyfoot[L]{
+	\vspace{6pt}
+	\textcolor{gray}{\textit{ We Scare Because We Care}
+}}
+
+\begin{document}
+\newcommand{\mytitlename}{Results \& Simulation}%Here Put the titlename(Task Name)
+\input{Title_page}
+\setstretch{1.5}
+\input{Results and Solution/intro}
+%%%%%%%% Here Add your code or file %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Results and Solution/ResultsHardware}
+\input{Results and Solution/cst}
+\input{Results and Solution/comsol}
+\newpage
+\input{Results and Solution/matlab}
+
+
+
+
+\pagebreak
+\bibliographystyle{unsrtnat}
+%\bibliography{references/modelling_references}%add your refrences to this file
+%\myframe
+\end{document}
